@@ -1,0 +1,526 @@
+@import "normalize/_normalize.sass"
+@import "variables/colors/_colorsElements.sass"
+@import "variables/_fonts.sass"
+@import "variables/_zIndex.sass"
+@import "mixin/_mixin.sass"
+
+h1, h2, h3, h4
+	color: var(--color-primary-text)
+
+h1, h2, h3
+	font:
+		family: var(--ff-playfair-display)
+		weight: var(--fw-regular)
+
+p, a
+	font:
+		family: var(--ff-roboto)
+		weight: var(--fw-regular)
+
+h1
+	font:
+		size: var(--fs-xxl)
+	line-height: 60px
+
+h2
+	font-size: var(--fs-xl)
+	line-height: 43px
+
+h3
+	font-size: var(--fs-l)
+	line-height: 40px
+
+h4
+	font:
+		family: var(--ff-roboto)
+		weight: var(--fw-bold)
+		size: var(--fs-s)
+	line-height: 16px
+	letter-spacing: 0.07em
+	text-transform: uppercase
+
+p
+	font-size: var(--fs-m)
+	color: var(--color-secondary-text)
+
+a
+	font-size: var(--fs-s)
+	cursor: pointer
+
+button
+	height: 64px
+	width: 205px
+	color: var(--color-button-text)
+	font:
+		family: var(--ff-roboto)
+		weight: var(--fw-medium)
+		size: var(--fs-xs)
+	line-height: 14px
+	letter-spacing: 0.05em
+	text-transform: uppercase
+
+.container
+	position: relative
+	width: 1166px
+	height: 100%
+	margin: 0 auto
+
+
+
+.header
+	background-color: var(--color-header-bg)
+	padding: 30px 0
+	width: 100%
+
+.headerNav
+	width: 100%
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+	&__navigation
+		color: var(--color-header-link)
+		display: flex
+
+	&__navigationItem + &__navigationItem
+		margin-left: 65px
+
+	&__link
+		color: var(--color-header-link)
+		line-height: 16px
+
+	&__navIcons
+		display: flex
+
+	&__navIconsItem
+		position: relative
+		& + &
+			margin-left: 23px
+
+	&__navIcon
+		stroke: var(--color-header-icon)
+		fill: var(--color-header-icon)
+		cursor: pointer
+
+	&__quantity
+		background-color: var(--color-header-favorites-quantity)
+		border-radius: 50%
+		position: absolute
+		display: flex
+		justify-content: center
+		align-items: center
+		height: 13px
+		width: 13px
+		font-size: var(--fs-xxs)
+		right: -5px
+		top: -8px
+
+.promo
+	background-color: var(--color-promo-bg)
+	height: 779px
+
+	.container
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__info
+		z-index: var(--z-promo-info)
+		display: flex
+		flex-direction: column
+		justify-content: flex-start
+		margin-left: 85px
+
+	&__title
+		margin-bottom: 16px
+		position: relative
+
+		&::before
+			@include line
+			position: absolute
+			top: 60%
+			left: -65px
+
+	&__subtitle
+		margin-bottom: 39px
+
+	&__text
+		font-size: 14px
+		line-height: 21px
+		max-width: 258px
+		margin-bottom: 64px
+
+	&__btn
+		background-color: var(--color-promo-button-bg)
+
+	&__photo
+		z-index: var(--z-promo-photo)
+		position: absolute
+		display: flex
+		justify-content: end
+		right: 0
+		top: 0
+		min-width: 60%
+		background: url(../img/png/promo__background.png) left no-repeat
+		background-size: 75% 100%
+		margin-right: 100px
+
+	&__watch
+		position: relative
+		color: var(--color-primary-text)
+
+	&__price
+		position: absolute
+		top: 160px
+		left: -80px
+		display: flex
+		align-items: center
+		line-height: 21px
+
+		&::after
+			@include line
+			margin-left: 15px
+			float: right
+
+	&__img
+		height: 800px
+		width: 500px
+
+	&__diameter
+		position: absolute
+		bottom: 130px
+		right: -84px
+		display: flex
+		align-items: center
+		line-height: 21px
+
+		&::before
+			@include line
+			float: left
+			margin-right: 15px
+
+
+.products
+	background-color: var(--color-products-bg)
+
+	&__title
+		text-align: center
+		padding-top: 76px
+
+	&__seeAll
+		color: var(--color-products-see-all)
+		font:
+			weight: var(--fw-medium)
+			size: var(--fs-m)
+		line-height: 19px
+		position: absolute
+		top: 112px
+		right: 0
+		display: flex
+		flex-direction: column
+		align-items: center
+
+		&::after
+			@include line(100px, var(--color-products-see-all-line))
+
+
+	&__list
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+		margin: 52px 0 86px
+
+.product + .product
+	margin-left: 22px
+
+.product
+	display: flex
+	flex-direction: column
+	justify-content: flex-start
+	background-color: var(--color-products-item-bg)
+	padding: 40px 30px
+
+	&__name
+		color: var(--color-secondary-text)
+		font:
+			family: var(--ff-playfair-display)
+			weight: var(--fw-bold)
+			size: var(--fs-s)
+		line-height: 24px
+		letter-spacing: 0.03em
+		margin-bottom: 10px
+
+	&__price
+		font:
+			family: var(--ff-parta)
+			weight: var(--fw-regular)
+			size: var(--fs-xs)
+		line-height: 16px
+
+	&__img
+		background: url(../img/png/product__background.png) 100% center
+		height: 313px
+		width: 313px
+
+	&__more
+		font:
+			family: var(--ff-playfair-display)
+			weight: var(--fw-regular)
+			size: var(--fs-m)
+		line-height: 21px
+		display: flex
+		align-items: center
+		cursor: pointer
+
+		&::before
+			@include line(30px)
+			margin-right: 18px
+
+
+.benefits
+	background: url(../img/jpg/benefits__background.jpg) no-repeat
+	background-size: 100% 100%
+
+	.swiper
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: space-between
+		padding-top: 52px
+
+		&__control
+			color: var(--color-benefits-control)
+			margin: 22px 0
+
+		&__btn
+			stroke: var(--color-benefits-control)
+			cursor: pointer
+
+		&__slideIndicator
+			margin: 0 20px
+
+	&__item
+		display: flex
+		align-items: center
+
+	&__img
+		height: 414px
+		width: 521px
+		margin-right: 70px
+
+	&__content
+		display: flex
+		flex-direction: column
+		align-items: flex-start
+		margin-right: 45px
+
+	&__text
+		color: var(--color-benefits-secondary-text)
+		line-height: 24px
+		margin: 38px 0 45px
+
+	&__btn
+		background-color: var(--color-benefits-button-bg)
+
+
+.contacts
+	background-color: var(--color-contacts-bg)
+	padding: 80px 0
+
+	.container
+		display: flex
+		justify-content: space-between
+		align-items: flex-end
+
+	&__title
+		margin-bottom: 40px
+
+	&__text
+		color: var(--color-contacts-secondary-text)
+		line-height: 27px
+		margin-right: 164px
+		margin-bottom: 120px
+
+	&__mail
+		color: var(--color-contacts-mail-text)
+		font-weight: 700
+
+	&__socials
+		margin-bottom: 60px
+
+	&__socialsIcon + &__socialsIcon
+		margin-left: 18px
+
+	&__socialsIcon
+		fill: var(--color-contacts-icon)
+
+
+	&__collage
+		display: grid
+		gap: 10px 10px
+		grid-template-areas: "contacts__photo--one contacts__photo--three" "contacts__photo--two contacts__photo--three"
+
+	&__photo--one
+		grid-area: contacts__photo--one
+
+	&__photo--two
+		grid-area: contacts__photo--two
+
+	&__photo--three
+		width: 377px
+		grid-area: contacts__photo--three
+
+
+.footer
+	background-color: var(--color-footer-bg)
+	padding: 65px 0
+
+	.container
+		display: grid
+		grid-template-columns: 1fr 1fr 1fr 1fr
+
+	&__title
+		color: var(--color-footer-primary-text)
+		margin-top: 14px
+		margin-bottom: 33px
+		vertical-align: text-top
+
+	&__logo
+		height: 35px
+		width: 130px
+		margin-top: 0
+		margin-bottom: 29px
+
+	&__item + &__item
+		margin-top: 15px
+
+	&__item
+		color: var(--color-footer-secondary-text)
+		font:
+			family: var(--ff-roboto)
+			size: var(--fs-xs)
+			weight: var(--fw-regular)
+		line-height: 14px
+		cursor: pointer
+
+
+@media (max-width: 1400px)
+	.container
+		width: 900px !important
+
+	.promo__photo
+		margin-right: 50px !important
+		background-size: 60% 100% !important
+
+@media (max-width: 1200px)
+	.container
+		flex-wrap: wrap !important
+		justify-content: center !important
+
+	.promo
+		height: 100%
+
+		&__photo
+			position: static !important
+
+	.contacts
+		&__info
+			display: flex !important
+			flex-direction: column !important
+			align-items: center !important
+
+		&__text
+			text-align: center !important
+			margin-right: 0 !important
+
+	.footer
+		.container
+
+
+@media (max-width: 1100px)
+	.container
+		width: 800px !important
+		flex-wrap: wrap !important
+
+@media (max-width: 960px)
+	.container
+		width: 90% !important
+
+	.headerNav
+		width: 100% !important
+		align-items: flex-start !important
+
+		&__navigation
+			align-items: center !important
+			flex-direction: column !important
+			font-size: var(--fs-xxl) !important
+
+		&__navigationItem + &__navigationItem
+			margin: 0 !important
+
+		&__link
+			font-size: var(--fs-xl) !important
+
+	.benefits
+		&__item
+			flex-direction: column !important
+			align-items: center !important
+
+		&__img
+			width: 100% !important
+			margin: 0 !important
+
+		&__content
+			align-items: center !important
+			margin: 0 !important
+
+		&__text
+			text-align: center !important
+
+	.contacts
+		&__collage
+			grid-template-areas: "contacts__photo--one" "contacts__photo--two" "contacts__photo--three" !important
+
+		&__photo
+			width: 370px !important
+	.footer
+		.container
+			grid-template-columns: 1fr 1fr !important
+			grid-template-rows: 1fr 1fr !important
+
+@media (max-width: 750px)
+	.promo
+		&__photo
+			margin: 0 !important
+
+		&__img
+			width: 100% !important
+
+		&__price
+			left: 0 !important
+
+		&__diameter
+			right: 0 !important
+
+@media (max-width: 500px)
+	.container
+		width: 95% !important
+
+	.headerNav
+		height: 50vh
+		flex-direction: column !important
+		align-items: center !important
+
+@media (max-width: 400px)
+	img
+		width: 100% !important
+	.contacts__photo
+			width: 100% !important
+
+	.footer
+		.container
+			grid-template-columns: 1fr !important
+
+		&__infoList
+			text-align: center !important
+			margin-top: 20px !important
